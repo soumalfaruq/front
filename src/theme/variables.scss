@@ -74,6 +74,16 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /** gold **/
+  --ion-color-gold:  #b49051;
+  --ion-color-gold-rgb: 180,144,81;
+  --ion-color-gold-contrast: #000000;
+  --ion-color-gold-contrast-rgb: 0, 0, 0;
+  --ion-color-gold-shade: #9e7f47;
+  --ion-color-gold-tint: #bc9b62;
+
+  --ion-font-family: 'Roboto';
 }
 
 @media (prefers-color-scheme: dark) {
@@ -232,5 +242,11 @@
     --ion-tab-bar-background: #1f1f1f;
 
     --ion-card-background: #1e1e1e;
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: normal;
+    src: url('../assets/Roboto/Roboto-Regular.ttf');
   }
 }

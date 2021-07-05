@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="gold">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Riad </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="riad">
+  <ion-card>
+        <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+          (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+          <ion-slide *ngFor="let pa of picture">
+            <ion-img src="{{this.service.images+pa.picture}}"></ion-img>
+          </ion-slide>
+        </ion-slides>
+      </ion-card>
+      <ion-card>
+        
+      </ion-card>
+      <ion-card>
+        <ion-item>
+            <ion-label>Telephone :</ion-label>
+            <ion-note slot="end">{{riad.phone}}</ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label>Mail :</ion-label>
+            <ion-note slot="end">{{riad.mail}}</ion-note>
+          </ion-item>
+        <ion-item>
+          <ion-label>Site web :</ion-label>
+          <ion-note slot="start">{{riad.website}}</ion-note>
+        </ion-item>
+      </ion-card>
+</ion-content>

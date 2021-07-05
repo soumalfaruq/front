@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar color="gold">
+    <ion-title>Place</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="places">
+  <ion-card>
+
+    <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+          (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+          <ion-slide *ngFor="let pa of picture">
+            <ion-img src="{{this.service.images+pa.path}}"></ion-img>
+          </ion-slide>
+      </ion-slides>
+
+    <ion-card-header>
+      <ion-card-title>{{p.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h2>Description :</h2>
+      <p>{{p.description}}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

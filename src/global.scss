@@ -24,3 +24,25 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.ion-color-gold {
+    --ion-color-base: var(--ion-color-gold) !important;
+    --ion-color-base-rgb: var(--ion-color-gold-rgb) !important;
+    --ion-color-contrast: var(--ion-color-gold-contrast) !important;
+    --ion-color-contrast-rgb: var(--ion-color-gold-contrast-rgb) !important;
+    --ion-color-shade: var(--ion-color-gold-shade) !important;
+    --ion-color-tint: var(--ion-color-gold-tint) !important;
+    }
+
+    .gold-degrade{
+        --background: #977334;
+        --background: -moz-linear-gradient(45deg,#977334 0%,#dacdb8 100%);
+        --background: -webkit-gradient(left bottom, right top, color-stop(0%, #977334), color-stop(100%, #dacdb8));
+        --background: -webkit-linear-gradient(45deg, #977334 0%, #dacdb8 100%);
+        --background: -o-linear-gradient(45deg, #977334 0%, #dacdb8 100%);
+        --background: -ms-linear-gradient(45deg, #977334 0%, #dacdb8 100%);
+        --background: linear-gradient(45deg, #977334 0%, #dacdb8 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#977334', endColorstr='#dacdb8', GradientType=1 );
+    
+        --color:#000000;
+    }

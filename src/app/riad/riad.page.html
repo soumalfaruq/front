@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="gold">
+    <ion-buttons slot="start">
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Riad</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      
+        <ion-col ion-list *ngFor="let r of riads" size="6" [routerLink]="['/detail-riad', r.id]">
+          <ion-card>
+              <ion-img src="{{this.service.images+r.picture}}" ></ion-img>
+            <ion-card-content>
+              <ion-card-subtitle>{{r.name}}</ion-card-subtitle>
+              <ion-card-subtitle>{{r.price}} dhs</ion-card-subtitle>
+              <ion-card-subtitle >
+              <ion-icon name="star" color="gold" *ngFor="let dummy of ' '.repeat(r.rate).split(''), let x = index"></ion-icon>
+              </ion-card-subtitle>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+</ion-content>

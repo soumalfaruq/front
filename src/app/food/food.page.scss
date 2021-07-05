@@ -1,0 +1,11 @@
+ion-toggle {
+    --handle-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6), 0 3px 1px rgba(218, 144, 76, 0.6);
+  
+    overflow: visible;
+    vertical-align: middle;
+    contain: none;
+  }
+img{
+    object-fit: cover;
+    max-height: 100%;
+}

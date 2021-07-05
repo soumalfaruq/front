@@ -1,0 +1,17 @@
+
+  <ion-menu contentId="content">
+    <ion-header>
+      <ion-toolbar class="gold-degrade">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content color="dark">
+      <ion-menu-toggle *ngFor="let m of menus">
+        <ion-item color="dark" (click)="onMenuNavigate(m)">
+          <ion-icon [name]="m.icon" slot="start" class="gold-degrade"></ion-icon>
+          <ion-title color="gold">{{m.title}}</ion-title>
+         </ion-item>
+      </ion-menu-toggle>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content"></ion-router-outlet>
