@@ -3,24 +3,68 @@
     <ion-buttons slot="start">
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
-    <ion-title>store</ion-title>
+    <ion-title> Store</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-searchbar showCancelButton="focus"></ion-searchbar>
   <ion-grid>
+    
+    <ion-chip>
+      <ion-label>Top Vente</ion-label>
+      <ion-toggle color="gold" ></ion-toggle>
+    </ion-chip >
     <ion-row>
-      <ion-chip>
-        <ion-label>Top Vente</ion-label>
-        <ion-toggle color="gold" ></ion-toggle>
-      </ion-chip >
-        <ion-chip *ngFor="let c of category" color="gold"  >
-          <ion-label color="dark">{{c.name}}</ion-label>
-          <ion-select placeholder="Select One">
-            <ion-select-option value="f">Female</ion-select-option >
-          </ion-select>
-        </ion-chip>
+      <ul class="dropdownmenu">
+      <li  *ngFor="let t of typeProduct"><a><ion-chip><ion-label>{{t.name}}</ion-label></ion-chip></a>
+        <ul>
+          <li class="dropdownsubmenu" *ngFor="let c of t.category"><ion-chip color="gold"><a><ion-label>{{c.name}}</ion-label></a></ion-chip>
+            <ul>
+              <li *ngFor="let cs of c.subCategory"><ion-chip color="gold" (click)="chargerProduct(cs.products)"><a >{{cs.name}}</a></ion-chip></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
     </ion-row>
   </ion-grid>
+  <ion-grid>
+    <ion-row >
+      <ion-col *ngFor="let p of product" size="6">
+        <ion-card >
+           <img src="{{this.service.images+p.picture}}"/>
+       <ion-card-content>
+         <ion-card-subtitle>{{p.name}}</ion-card-subtitle>
+         <ion-button (click)="addProduct(p)" color="gold" size="small">
+          Ajouter
+        </ion-button>
+       </ion-card-content>
+     
+      </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-chip class="gold-degrade">
+      <ion-icon name="cart"></ion-icon>
+      <ion-icon name="add-circle"></ion-icon>
+      <ion-label>{{nbr}}</ion-label>
+    </ion-chip>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" [hidden]=hidden>
+      <ion-chip color="danger" (click)="cancelCommande()">
+        <ion-icon name="add-circle"></ion-icon>
+        <ion-label>Annuler</ion-label>
+      </ion-chip>
+    </ion-fab>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" [hidden]=hidden>
+      <ion-chip color="success" (click)="finishCommande()">
+        <ion-icon name="add-circle"></ion-icon>
+        <ion-label>Terminer</ion-label>
+      </ion-chip>
+    </ion-fab>
+
 </ion-content>

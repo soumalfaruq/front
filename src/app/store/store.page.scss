@@ -1,0 +1,162 @@
+.third-level-menu
+{
+    position: absolute;
+    top: 0;
+    right: -150px;
+    width: 150px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.third-level-menu > li
+{
+    height: 30px;
+}
+
+
+.second-level-menu
+{
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 150px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.second-level-menu > li
+{
+    position: relative;
+    height: 30px;
+    background: #999999;
+}
+.second-level-menu > li:hover { background: #CCCCCC; }
+
+.top-level-menu
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-level-menu > li
+{
+    position: relative;
+    float: left;
+    height: 30px;
+    width: 150px;
+    background: #999999;
+}
+.top-level-menu > li:hover { background: #CCCCCC; }
+
+.top-level-menu li:hover > ul
+{
+    /* On hover, display the next level's menu */
+    display: inline;
+}
+
+
+/* Menu Link Styles */
+
+.top-level-menu a /* Apply to all links inside the multi-level menu */
+{
+    font: bold 14px Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0 0 0 10px;
+    
+    /* Make the link cover the entire list item-container */
+    display: block;
+    line-height: 30px;
+}
+
+
+/* Dropdown menu */
+.dropdownmenu {
+    background-color: white;
+  }
+  .dropdownmenu,
+  .dropdownmenu ul {
+    /* Suppression des puces et des marges pour les listes du menu et des sous-menus */
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+  }
+  .dropdownmenu ul {
+    /* Masquage des sous-menu par defaut */
+    display: none;
+  }
+  .dropdownmenu li {
+    /* Disposition horizontale des elements de menu */
+    display: inline-block;
+  
+    /* Positionnement relative des elements de menu pour pouvoir positionner les 
+                     sous-menu correctement en absolu */
+    position: relative;
+  }
+  .dropdownmenu a {
+    /* On transforme les liens en bloc pour pouvoir les dimensionner */
+    display: block;
+  
+    /* Dimensions des liens */
+    width: 100px;
+    height: 30px;
+    line-height: 30px; /* Doit etre equivalent a la hauteur du menu pour centrer le texte verticalement */
+    padding: 3px 10px;
+  
+    text-align: center;
+  }
+  /* avec le > on s'assure de ne pas afficher les sous-listes*/
+  .dropdownmenu li:hover > ul { 
+    /* Affichage du soumenu au survol */
+    display: block;
+  
+    /* Positionnement du sous-menu */
+    position: absolute;
+    top: 36px; /* Hauteur du menu + hauteur du padding top et bottom : 30 + 3 + 3 = 36 */
+    left: 0px; /* Decalage du sous-menu par rapport aux liens du menu*/
+    z-index: 100; /* Gestion de la superposition des sous-menus par rapport au reste de la page */
+  }
+  .dropdownmenu ul a {
+    /* Changement de l'affichage des liens des sous-menus pour ne pas les afficher
+                  en inline-block comme les liens de menu, ils seront donc verticaux */
+    display: block;
+  }
+  .dropdownsubmenu > a::after {
+    content: " ›";
+  }
+  .dropdownsubmenu ul {
+    position: absolute;
+    top: 30px !important; 
+    left: 50px !important; 
+  }
+  
+  
+  
+  
+  
+  /* Gestion des couleurs */
+  .dropdownmenu li {
+    background-color: white; /* Couleur d'arriere-plan du menu */
+  }
+  .dropdownmenu li a {
+    color: #ccc; /* Couleur du texte du menu */
+  }
+
+  .dropdownmenu li:hover a {
+    color: #fff; /* Couleur du texte du menu au survol */
+  }
+  .dropdownmenu ul li {
+    background-color: white; /* Couleur d'arriere-plan des sous-menu */
+
+  }
+ 
+  .dropdownmenu ul li a {
+    color: rgb(0, 0, 0); /* Couleur du texte des sous-menu */
+  }
+ 
+  

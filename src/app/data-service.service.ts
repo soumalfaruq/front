@@ -7,6 +7,7 @@ export class DataServiceService {
  public host:string="https://localhost:8081";
  public images:string="http://localhost:8081/images/";
  public id:number;
+ public commande;
   constructor(private http:HttpClient) { }
 
   public getResource(url){
