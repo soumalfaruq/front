@@ -29,7 +29,7 @@
        <ion-card-content>
          <ion-card-subtitle>{{f.name}}</ion-card-subtitle>
          <ion-card-subtitle>{{f.Description}}</ion-card-subtitle>
-         <ion-button (click)="Ajouter()" color="gold" size="small">
+         <ion-button (click)="Ajouter(f)" color="gold" size="small">
           Ajouter
         </ion-button>
        </ion-card-content>
@@ -45,5 +45,18 @@
   <ion-icon name="add-circle"></ion-icon>
   <ion-label>{{nbr}}</ion-label>
 </ion-chip>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed" [hidden]=hidden>
+    <ion-chip color="danger" (click)="cancelCommande()">
+      <ion-icon name="close"></ion-icon>
+      <ion-label>Annuler</ion-label>
+    </ion-chip>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" [hidden]=hidden>
+    <ion-chip color="success" (click)="finishCommande()">
+      <ion-icon name="checkmark"></ion-icon>
+      <ion-label>Terminer</ion-label>
+    </ion-chip>
   </ion-fab>
 </ion-content>

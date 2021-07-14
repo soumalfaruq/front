@@ -1,14 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>commande</ion-title>
+  <ion-toolbar color="gold">
+    <ion-title>Votre commande</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label></ion-label>
+  <ion-list *ngFor="let c of commande">
+    <ion-item >
+      <ion-label>{{c.name}}</ion-label>
+      <ion-thumbnail slot="start">
+        <img src="{{this.service.images+c.picture}}" >
+      </ion-thumbnail>
     </ion-item>
   </ion-list>
-  
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-chip color="danger" (click)="cancelCommande()">
+      <ion-icon name="close"></ion-icon>
+      <ion-label>Annuler</ion-label>
+    </ion-chip>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-chip color="success" (click)="finishCommande()">
+      <ion-icon name="checkmark"></ion-icon>
+      <ion-label>Terminer</ion-label>
+    </ion-chip>
+  </ion-fab>
 </ion-content>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-food',
@@ -13,7 +14,9 @@ export class FoodPage implements OnInit {
   public urltop:string="/foodorder";
   public foods;
   public foodtype;
-  constructor(  private service:DataServiceService) { }
+  public commandeFood=[];
+  public hidden:boolean=true;
+  constructor(  private service:DataServiceService,private nav: NavController) { }
 
   ngOnInit() {
     this.service.getResource(this.urltf)
@@ -41,7 +44,20 @@ export class FoodPage implements OnInit {
     });
    console.log(this.foods);
   }
-  Ajouter(){
+  Ajouter(cp:any){
+    this.hidden=false;
+    this.commandeFood.push(cp);
+    this.nbr=this.commandeFood.length;
     this.nbr=this.nbr+1;
+  };
+  finishCommande(){
+    this.service.commande=this.commandeFood;
+    this.nav.navigateForward('/commande');
+    
+  };
+  cancelCommande(){
+    this.hidden=true;
+    this.service.commande.length=0;
+    console.log(this.service.commande);
   };
 }

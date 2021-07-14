@@ -6,6 +6,9 @@
       </ion-toolbar>
     </ion-header>
     <ion-content color="dark">
+      <ion-avatar class="avatar">
+        <img src="../../assets/image/fes.PNG">
+      </ion-avatar>
       <ion-menu-toggle *ngFor="let m of menus">
         <ion-item color="dark" (click)="onMenuNavigate(m)">
           <ion-icon [name]="m.icon" slot="start" class="gold-degrade"></ion-icon>

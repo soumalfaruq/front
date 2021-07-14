@@ -9,12 +9,7 @@ import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
 })
 export class HomePage {
   @ViewChild('slideWithNav', { static: false }) slideWithNav: IonSlides;
-  @ViewChild('slideWithNav2', { static: false }) slideWithNav2: IonSlides;
-  @ViewChild('slideWithNav3', { static: false }) slideWithNav3: IonSlides;
-
   sliderOne: any;
-  sliderTwo: any;
-  sliderThree: any;
 
 
   //Configuration for each Slider
@@ -23,18 +18,7 @@ export class HomePage {
     slidesPerView: 1,
     autoplay: true
   };
-  slideOptsTwo = {
-    initialSlide: 1,
-    slidesPerView: 2,
-    loop: true,
-    centeredSlides: true,
-    spaceBetween: 20
-  };
-  slideOptsThree = {
-    initialSlide: 0,
-    slidesPerView: 3
-  };
-
+ 
   constructor(private youTube: YoutubeVideoPlayer
   ) {
     //Item object for Nature
@@ -57,52 +41,6 @@ export class HomePage {
         },
         {
           id: 944
-        }
-      ]
-    };
-    //Item object for Food
-    this.sliderTwo =
-    {
-      isBeginningSlide: true,
-      isEndSlide: false,
-      slidesItems: [
-        {
-          id: 324
-        },
-        {
-          id: 321
-        },
-        {
-          id: 435
-        },
-        {
-          id: 524
-        },
-        {
-          id: 235
-        }
-      ]
-    };
-    //Item object for Fashion
-    this.sliderThree =
-    {
-      isBeginningSlide: true,
-      isEndSlide: false,
-      slidesItems: [
-        {
-          id: 643
-        },
-        {
-          id: 532
-        },
-        {
-          id: 232
-        },
-        {
-          id: 874
-        },
-        {
-          id: 193
         }
       ]
     };

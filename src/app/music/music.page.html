@@ -7,7 +7,30 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+  <ion-content [fullscreen]="true" class="ion-padding" class="video-background">
+    <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+      (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+      <ion-slide>
+        <img src="../../assets/image/festival_des_musiques_sacrées5.jpg">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/image/festival des musiques sacrées6.jpg">
+      </ion-slide>
+      <ion-slide >
+        <img src="../../assets/image/festival des musiques sacrées4.jpg">
+      </ion-slide>
+      <ion-slide >
+        <img src="../../assets/image/festival des musiques sacrées3.jfif">
+      </ion-slide>
+      <ion-slide >
+        <img src="../../assets/image/festival des musiques sacrées1.webp">
+      </ion-slide>
+      <ion-slide >
+        <iframe width="100%" height="60%" src="https://www.youtube.com/embed/rs_jLwkLXMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </ion-slide>
+    </ion-slides>
+  
   <ion-item lines="none" *ngFor="let song of songs" (click)="playSong(song.title,song.subtitle,song.img,song.path)">
     <ion-thumbnail slot="start">
        <img src="{{song.img}}" />
