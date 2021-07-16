@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 const routes: Routes = [
   {
     path: '',
@@ -29,11 +29,15 @@ const routes: Routes = [
     path: 'commande',
     loadChildren: () => import('./commande/commande.module').then( m => m.CommandePageModule)
   },
+  {
+    path: 'user-creation',
+    loadChildren: () => import('./user-creation/user-creation.module').then( m => m.UserCreationPageModule)
+  },
 ];
 
 @NgModule({
   imports: [HttpClientModule,
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),  Ng2SearchPipeModule
   ],
   exports: [RouterModule]
 })

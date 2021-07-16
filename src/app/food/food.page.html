@@ -8,12 +8,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar showCancelButton="always"></ion-searchbar> 
+  <ion-searchbar showCancelButton="always" [(ngModel)]="filterTerm" animated="true"></ion-searchbar> 
   <ion-grid>
     <ion-row>
       <ion-chip>
         <ion-label>Top Vente</ion-label>
-        <ion-toggle color="gold" (ionchange)="chargeFoodOrder()"></ion-toggle>
+        <ion-toggle color="gold"  [(ngModel)]="isToggled" (ngModelChange)="chargeFoodOrder()"></ion-toggle>
       </ion-chip >
         <ion-chip *ngFor="let ft of foodtype" color="gold"  (click)="chargerFood(ft.foods)">
           <ion-label color="dark">{{ft.name}}</ion-label>
@@ -25,7 +25,7 @@
     <ion-row >
       <ion-col *ngFor="let f of foods" size="6">
         <ion-card >
-           <img src="{{this.service.images+f.foodPicture}}"/>
+           <img src="{{this.service.images+f.picture}}"/>
        <ion-card-content>
          <ion-card-subtitle>{{f.name}}</ion-card-subtitle>
          <ion-card-subtitle>{{f.Description}}</ion-card-subtitle>

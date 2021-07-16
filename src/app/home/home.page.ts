@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player/ngx';
+import { AuthentificationService } from '../authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,8 +21,7 @@ export class HomePage {
     autoplay: true
   };
  
-  constructor(private youTube: YoutubeVideoPlayer
-  ) {
+  constructor(private youTube: YoutubeVideoPlayer, private aut:AuthentificationService, private router:Router ) {
     //Item object for Nature
     this.sliderOne =
     {
@@ -45,7 +46,13 @@ export class HomePage {
       ]
     };
   }
-
+  log(){
+    if(!this.aut.connected){
+     this.router.navigateByUrl("/login");
+    }else{
+      this.aut.logout();
+    }
+  }
   //Move to Next slide
   slideNext(object, slideView) {
     slideView.slideNext(500).then(() => {

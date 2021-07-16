@@ -3,6 +3,7 @@ import { IonSlides,ActionSheetController, Platform, AlertController  } from '@io
 import { DataServiceService } from '../data-service.service';
 import { ActivatedRoute } from '@angular/router';
 import {GoogleMaps, GoogleMap,GoogleMapsMapTypeId, GoogleMapsEvent,GoogleMapOptions,CameraPosition,MarkerOptions,Marker, Environment} from '@ionic-native/google-maps';
+import { DonneesService } from '../donnees.service';
 @Component({
   selector: 'app-detail-riad',
   templateUrl: './detail-riad.page.html',
@@ -12,7 +13,7 @@ export class DetailRiadPage implements OnInit {
   public url:string="/riads/";
   public picture;
   public riads;
-  public riad;
+  public riad=[];
 
   @ViewChild('slideWithNav', { static: false }) slideWithNav: IonSlides;
   sliderOne: any;
@@ -28,7 +29,7 @@ export class DetailRiadPage implements OnInit {
   constructor(private service:DataServiceService,
     private route: ActivatedRoute, public alertController: AlertController,
     public actionCtrl: ActionSheetController,
-    private platform: Platform) { 
+    private platform: Platform, private data:DonneesService) { 
 
       if (this.platform.is('cordova')) {
         this.loadMap();
@@ -108,21 +109,8 @@ checkisEnd(object, slideView) {
   });}
   ngOnInit() {
     const id= +this.route.snapshot.paramMap.get('id');
-    this.service.getResource(this.url+id)
-    .subscribe(data=>{
-      this.riad=data;
-      this.riads=[this.riad]
-      console.log(this.riad)
-    },err=>{
-      console.log(err);
-    });
-    this.service.getResource(this.url+id+"/pictures")
-    .subscribe(data=>{
-      this.picture=data;
-      this.picture=this.picture._embedded.picturesRiads;
-      this.riads=[this.riad,[this.picture]]
-    },err=>{
-      console.log(err);
-    });
+      this.riad=this.data.riads
+      this.riad=this.riad.find(fruit => fruit.id === id);
+      console.log(this.riad);
     }
 }

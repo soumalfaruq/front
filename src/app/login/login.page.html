@@ -13,15 +13,15 @@
     </ion-card-header>
   
     <ion-card-content>
-      <form>
+      <form #f="ngForm" (ngSubmit)="login(f.value)">
         <ion-item lines="full">
           <ion-label position="floating">User</ion-label>
-          <ion-input type="text" required></ion-input>
+          <ion-input type="text" name="user" ngModel placeholder="username"></ion-input>
         </ion-item>
     
         <ion-item lines="full">
           <ion-label position="floating">Password</ion-label>
-          <ion-input type="password" required></ion-input>
+          <ion-input type="password" name="pass" ngModel placeholder="password"></ion-input>
         </ion-item>
     
         <ion-row>
@@ -30,13 +30,8 @@
           </ion-col>
          <ion-col>
             <ion-buttons collapse="true">
-              <ion-button slot="star" class="gold-degrade">
+              <ion-button slot="star" class="gold-degrade" [routerLink]="['/user-creation']">
                  create account
-              </ion-button>
-            </ion-buttons>
-            <ion-buttons collapse="true">
-              <ion-button slot="end"class="gold-degrade">
-               password or usename forgot ?
               </ion-button>
             </ion-buttons>
           </ion-col>

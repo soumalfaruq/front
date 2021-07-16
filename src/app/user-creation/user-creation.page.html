@@ -1,0 +1,43 @@
+<ion-header >
+  <ion-toolbar class="gold-degrade">
+    <ion-title>User Creation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-avatar >
+        <img src="../../assets/image/fes.PNG">
+      </ion-avatar>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <form #f="ngForm" (ngSubmit)="creation(f.value)">
+        <ion-item lines="full">
+          <ion-label position="floating">Name</ion-label>
+          <ion-input type="text" name="name" ngModel placeholder="Name"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Mail</ion-label>
+          <ion-input type="text" name="mail" ngModel placeholder="mail"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="text" name="user" ngModel placeholder="username"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" name="pass" ngModel placeholder="password"></ion-input>
+        </ion-item>
+    
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" class="gold-degrade" expand="block">Creer user</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

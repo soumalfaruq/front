@@ -3,6 +3,10 @@
     <ion-buttons slot="start">
       <ion-menu-button ></ion-menu-button>
     </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="log()" [hidden]=this.aut.connected>login</ion-button>
+        <ion-button (click)="log()" [hidden]=!this.aut.connected>logout</ion-button>
+    </ion-buttons>
     <ion-title>
       Home
     </ion-title>
@@ -40,7 +44,7 @@
             <iframe width="100%" height="70%" src="https://www.youtube.com/embed/rs_jLwkLXMw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </ion-card-content>
         </ion-card>
-        <ion-card>
+        <ion-card [hidden]=this.aut.connected>
           <ion-card-header>
             <ion-card-title>Menu</ion-card-title>
           </ion-card-header>

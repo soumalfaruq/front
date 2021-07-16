@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NavController} from '@ionic/angular';
 import { DataServiceService } from '../data-service.service';
+import { DonneesService } from '../donnees.service';
 
 @Component({
   selector: 'app-culture',
@@ -11,17 +12,11 @@ export class CulturePage implements OnInit {
 public place;
 public url:string="/places";
   constructor(private nav:NavController,
-    private service:DataServiceService) { 
+    private service:DataServiceService,private data:DonneesService) { 
     }
 
   ngOnInit() {
-    this.service.getResource(this.url)
-    .subscribe(data=>{
-      this.place=data;
-      this.place=this.place._embedded.places;
-    },err=>{
-      console.log(err);
-    });
+      this.place=this.data.culture;
   }
 
 }

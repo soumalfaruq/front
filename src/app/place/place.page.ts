@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
 import { ActivatedRoute } from '@angular/router';
 import { IonSlides } from '@ionic/angular';
+import { DonneesService } from '../donnees.service';
 
 @Component({
   selector: 'app-place',
@@ -10,7 +11,7 @@ import { IonSlides } from '@ionic/angular';
 })
 export class PlacePage implements OnInit {
   public url:string="/places/";
-  public p;
+  public p=[];
   public places;
   public picture;
   @ViewChild('slideWithNav', { static: false }) slideWithNav: IonSlides;
@@ -22,7 +23,7 @@ export class PlacePage implements OnInit {
     autoplay: true
   };
   constructor(private service:DataServiceService,
-    private route: ActivatedRoute) { 
+    private route: ActivatedRoute, private data:DonneesService) { 
       //Item object for Nature
       this.sliderOne =
       {
@@ -86,20 +87,9 @@ export class PlacePage implements OnInit {
 
   ngOnInit() {
   const id= +this.route.snapshot.paramMap.get('id');
-  this.service.getResource(this.url+id)
-  .subscribe(data=>{
-    this.p=data;
-  },err=>{
-    console.log(err);
-  });
-  this.service.getResource(this.url+id+"/picture")
-  .subscribe(data=>{
-    this.picture=data;
-    this.picture=this.picture._embedded.placePictures;
-    this.places=[this.p,[this.picture]]
-  },err=>{
-    console.log(err);
-  });
+  this.p=this.data.culture;
+  this.p=this.p.find(fruit => fruit.idPlace === id);
+  console.log(this.p)
   }
 
 }

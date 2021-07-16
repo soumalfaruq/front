@@ -6,12 +6,12 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-content *ngIf="places">
+<ion-content *ngIf="p">
   <ion-card>
 
     <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
           (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
-          <ion-slide *ngFor="let pa of picture">
+          <ion-slide *ngFor="let pa of p.picture">
             <ion-img src="{{this.service.images+pa.path}}"></ion-img>
           </ion-slide>
       </ion-slides>

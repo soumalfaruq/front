@@ -5,15 +5,13 @@ import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
 })
 export class DataServiceService {
  public host:string="https://localhost:8081";
- public images:string="http://localhost:8081/images/";
+ public images:string="../assets/images/";
  public id:number;
  public commande;
+ public num:number;
   constructor(private http:HttpClient) { }
 
   public getResource(url){
     return this.http.get("http://localhost:8081"+url);
-}
-public getPicture(){
-  return this.http.get("http://localhost:8081/images");
 }
 }

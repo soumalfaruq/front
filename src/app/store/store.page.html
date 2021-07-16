@@ -8,12 +8,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar showCancelButton="focus"></ion-searchbar>
+  <ion-searchbar showCancelButton="focus" (ionInput)="onInput($event)"></ion-searchbar>
   <ion-grid>
     
     <ion-chip>
       <ion-label>Top Vente</ion-label>
-      <ion-toggle color="gold" ></ion-toggle>
+      <ion-toggle color="gold" [(ngModel)]="flag" (ngModelChange)="changeFuncWorking()" ></ion-toggle>
     </ion-chip >
     <ion-row>
       <ul class="dropdownmenu">

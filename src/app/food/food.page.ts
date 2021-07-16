@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
 import { NavController } from '@ionic/angular';
+import { DonneesService } from '../donnees.service';
 
 @Component({
   selector: 'app-food',
@@ -9,55 +10,50 @@ import { NavController } from '@ionic/angular';
 })
 export class FoodPage implements OnInit {
   public nbr:number=0;
-  public urltf:string="/typefood";
-  public urlf:string="/food";
-  public urltop:string="/foodorder";
-  public foods;
+  public foods=[];
   public foodtype;
   public commandeFood=[];
   public hidden:boolean=true;
-  constructor(  private service:DataServiceService,private nav: NavController) { }
+  public isToggled:boolean=false;
+ 
+ public  filterTerm: string;
+  constructor(  private service:DataServiceService,private nav: NavController,private data:DonneesService) {
+    this.isToggled = false;
+   }
 
   ngOnInit() {
-    this.service.getResource(this.urltf)
-    .subscribe(data=>{
-      this.foodtype=data;
-    },err=>{
-      console.log(err);
-    });
-    this.service.getResource(this.urlf)
-    .subscribe(data=>{
-      this.foods=data;
-    },err=>{
-      console.log(err);
-    });
+    
+      this.foodtype=this.data.foodtype;
+      this.foods=this.data.food;
   }
   chargerFood(fbt:any){
     this.foods=fbt;
   }
   chargeFoodOrder(){
-    this.service.getResource(this.urltop)
-    .subscribe(data=>{
-      this.foods=data;
-    },err=>{
-      console.log(err);
-    });
-   console.log(this.foods);
+    if(this.isToggled==true){
+      this.foods=this.foods.sort((a, b) => a.nbrVente - b.nbrVente);
+    }else{
+      this.foods=this.data.food;
+    }
+      
   }
   Ajouter(cp:any){
+    let n;
     this.hidden=false;
     this.commandeFood.push(cp);
-    this.nbr=this.commandeFood.length;
-    this.nbr=this.nbr+1;
+    n=this.commandeFood.length;
+    this.nbr=n;
   };
   finishCommande(){
+    this.service.num=1;
     this.service.commande=this.commandeFood;
     this.nav.navigateForward('/commande');
     
   };
   cancelCommande(){
+    this.nbr=0;
     this.hidden=true;
     this.service.commande.length=0;
-    console.log(this.service.commande);
+    this.nav.navigateForward('/menu/food');
   };
 }

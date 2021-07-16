@@ -19,7 +19,7 @@
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="YouTubeDataApiKey" value="AIzaSyDAo9_xfiZft3JN-qbPwPdh6DbocYyG_EY" />
-    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyDgeceL_CV_lWHFSy-lGknAdnZO9w0VYqk" />
+    <preference name="GOOGLE_MAPS_ANDROID_API_KEY" value="AIzaSyBCDK1k_FOt4U8RvVJtvY_0UKNecOkzqdA" />
     <platform name="android">
         <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:networkSecurityConfig="@xml/network_security_config" />

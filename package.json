@@ -20,12 +20,14 @@
     "@angular/platform-browser-dynamic": "~12.0.1",
     "@angular/router": "~12.0.1",
     "@capacitor/core": "3.0.1",
-    "@ionic-native/core": "^5.22.0-beta-1",
-    "@ionic-native/google-maps": "^5.27.0-beta-20200630",
+    "@ionic-native/core": "^5.34.0",
+    "@ionic-native/google-maps": "^5.5.0",
     "@ionic-native/native-audio": "^5.34.0",
     "@ionic-native/youtube-video-player": "^5.33.1",
     "@ionic/angular": "^5.5.2",
+    "@ionic/storage": "^3.0.6",
     "cordova-android": "9.1.0",
+    "ng2-search-filter": "^0.5.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
@@ -84,11 +86,8 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-googlemaps": {
-        "API_KEY_FOR_ANDROID": "AIzaSyCSt99jomdmH1lsGZ6cmDSOZxlrVxupQRo",
-        "API_KEY_FOR_IOS": "AIzaSyBOM-HYq9i9reuKWN-aYWHgoJsxwKSbvH4"
-      },
-      "cordova-plugin-music-controls2": {}
+      "cordova-plugin-music-controls2": {},
+      "cordova-plugin-googlemaps": {}
     },
     "platforms": [
       "android"

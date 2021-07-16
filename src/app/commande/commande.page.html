@@ -5,14 +5,53 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngFor="let c of commande">
-    <ion-item >
-      <ion-label>{{c.name}}</ion-label>
+  <ion-card>
+    <ion-item *ngFor="let c of commande">
       <ion-thumbnail slot="start">
         <img src="{{this.service.images+c.picture}}" >
       </ion-thumbnail>
+        <ion-label>
+          <h2>{{c.name}}</h2>
+          <h2>price : {{c.price}} dhs</h2>
+        </ion-label>
+            <ion-fab-button color="gold" (click)="plus(c)"><ion-icon name="add"></ion-icon></ion-fab-button>
+            <p>{{c.quantity}}</p>
+          <ion-icon name="remove-outline" (click)="mois(c)"></ion-icon>
+      </ion-item>
+
+  </ion-card>
+ 
+  <form #f="ngForm" (ngSubmit)="commandes(f.value)" [hidden]=hidden >
+    <ion-item lines="full">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" name="name" ngModel placeholder="Name"></ion-input>
     </ion-item>
-  </ion-list>
+    <ion-item lines="full">
+      <ion-label position="floating">Adresse Livraison</ion-label>
+      <ion-input type="text" name="adresse" ngModel placeholder="Adress"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Telephone</ion-label>
+      <ion-input type="text" name="phone" ngModel placeholder="Telephone pour vous joindre"></ion-input>
+    </ion-item>
+  
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" class="gold-degrade" expand="block">Valider</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <ion-card [hidden]=!hidden *ngIf=user>
+    <ion-item >
+     
+        <ion-label>
+          <h2>{{user.name}}</h2>
+          <h2>Votre adresse de Livraison : {{user.adresse}}</h2>
+          <h2>Votre telephone : {{user.phone}}</h2>
+        </ion-label>
+      </ion-item>
+
+  </ion-card>
   <ion-fab vertical="bottom" horizontal="start" slot="fixed">
     <ion-chip color="danger" (click)="cancelCommande()">
       <ion-icon name="close"></ion-icon>

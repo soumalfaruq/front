@@ -15,6 +15,16 @@
           <ion-title color="gold">{{m.title}}</ion-title>
          </ion-item>
       </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item color="dark" (click)="log()" [hidden]=!this.aut.connected>
+          <ion-icon name="log-out-outline" slot="start" class="gold-degrade"></ion-icon>
+          <ion-title color="gold">Logout</ion-title>
+         </ion-item>
+         <ion-item color="dark" (click)="log()" [hidden]=this.aut.connected>
+          <ion-icon name="log-in-outline" slot="start" class="gold-degrade"></ion-icon>
+          <ion-title color="gold">Login</ion-title>
+         </ion-item>
+      </ion-menu-toggle>
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="content"></ion-router-outlet>

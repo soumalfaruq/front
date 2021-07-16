@@ -12,12 +12,13 @@ export class CommandePage implements OnInit {
   public food;
   public com:string="";
   public commandePost;
-  public commande;
+  public commande=[];
+  public user;
+  public hidden:boolean=false;
   constructor(private service:DataServiceService,private nav:NavController) { }
 
   ngOnInit() {
     this.commande=this.service.commande;
-    console.log(this.commande);
   }
   cancelCommande(){
     this.service.commande=[];
@@ -26,4 +27,15 @@ export class CommandePage implements OnInit {
   finishCommande(){
     this.nav.navigateForward('menu/home');
   };
+  commandes(com){
+this.user=com;
+this.hidden=true;
+  }
+
+  plus(index){
+    index.quantity=index.quantity+1
+  }
+  mois(index){
+    index.quantity=index.quantity-1
+  }
 }

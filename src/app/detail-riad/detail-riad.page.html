@@ -11,7 +11,7 @@
   <ion-card>
         <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
           (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
-          <ion-slide *ngFor="let pa of picture">
+          <ion-slide *ngFor="let pa of riad.pictures">
             <ion-img src="{{this.service.images+pa.picture}}"></ion-img>
           </ion-slide>
         </ion-slides>
@@ -30,7 +30,7 @@
           </ion-item>
         <ion-item>
           <ion-label>Site web :</ion-label>
-          <ion-note slot="start">{{riad.website}}</ion-note>
+          <ion-note slot="end">{{riad.website}}</ion-note>
         </ion-item>
       </ion-card>
 </ion-content>

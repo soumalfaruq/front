@@ -32,6 +32,10 @@ const routes: Routes = [
         path: 'riad',
         loadChildren: () => import('../riad/riad.module').then( m => m.RiadPageModule)
       },
+      {
+        path: 'login',
+        loadChildren: () => import('../login/login.module').then( m => m.LoginPageModule)
+      },
     ]
   },
 
