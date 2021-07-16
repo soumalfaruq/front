@@ -1,16 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-import {
-  GoogleMaps,
-  GoogleMap,
-  GoogleMapsMapTypeId,
-  GoogleMapsEvent,
-  GoogleMapOptions,
-  CameraPosition,
-  MarkerOptions,
-  Marker,
-  Environment
-} from '@ionic-native/google-maps';
+
 import { ActionSheetController, Platform, AlertController } from '@ionic/angular';
 import { DonneesService } from '../donnees.service';
 
@@ -20,7 +10,7 @@ import { DonneesService } from '../donnees.service';
   styleUrls: ['./riad.page.scss'],
 })
 export class RiadPage implements OnInit {
- public map: GoogleMap;
+ 
   public riads;
   public note:number;
 

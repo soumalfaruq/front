@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonSlides,ActionSheetController, Platform, AlertController  } from '@ionic/angular';
 import { DataServiceService } from '../data-service.service';
 import { ActivatedRoute } from '@angular/router';
-import {GoogleMaps, GoogleMap,GoogleMapsMapTypeId, GoogleMapsEvent,GoogleMapOptions,CameraPosition,MarkerOptions,Marker, Environment} from '@ionic-native/google-maps';
 import { DonneesService } from '../donnees.service';
 @Component({
   selector: 'app-detail-riad',
@@ -17,7 +16,7 @@ export class DetailRiadPage implements OnInit {
 
   @ViewChild('slideWithNav', { static: false }) slideWithNav: IonSlides;
   sliderOne: any;
-  map: GoogleMap;
+  
 
   //Configuration for each Slider
   slideOptsOne = {
@@ -31,9 +30,7 @@ export class DetailRiadPage implements OnInit {
     public actionCtrl: ActionSheetController,
     private platform: Platform, private data:DonneesService) { 
 
-      if (this.platform.is('cordova')) {
-        this.loadMap();
-      }
+     
      //Item object for Nature
      this.sliderOne =
      {
@@ -64,22 +61,7 @@ slideNext(object, slideView) {
     this.checkIfNavDisabled(object, slideView);
   });
 }
-loadMap() {
-	Environment.setEnv({
-		API_KEY_FOR_BROWSER_RELEASE: 'AI*********************************DPM',
-		API_KEY_FOR_BROWSER_DEBUG: 'AI*********************************DPM'
-	});
-	this.map = GoogleMaps.create('map_canvas', {
-		camera: {
-			target: {
-				lat: 43.610769,
-				lng: 3.876716
-			},
-			zoom: 12,
-			tilt: 30
-		}
-	});
-}
+
 //Move to previous slide
 slidePrev(object, slideView) {
   slideView.slidePrev(500).then(() => {
